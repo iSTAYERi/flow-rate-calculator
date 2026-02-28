@@ -42,3 +42,8 @@ jobs:
           releaseBody: 'Download the installer below.'
           releaseDraft: false
           prerelease: false
+
+      - name: Upload portable exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{ github.ref_name }} "src-tauri/target/release/flow-rate-calc.exe#Flow Rate Calculator (portable).exe"
